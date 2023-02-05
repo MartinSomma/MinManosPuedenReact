@@ -1,7 +1,9 @@
 
+
 export const ItemListContainer = (props) =>{
     return( 
         <>
+
         <div style={estilos.listaContenedor}>
             <ul style={estilos.ul}>
                 <li><a style={estilos.a} href="#">Inicio</a></li>
@@ -37,7 +39,7 @@ const estilos = {
     a: {
       textDecoration: "none",
       color: "grey",
-      //fontFamily: "Arial, Courier New, monospace",
+      fontFamily: "Segoe UI, Arial, Courier New",
     },
     mensaje: {
         style: "bold",

@@ -20,7 +20,7 @@ const estilos = {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      border: "solid 1px",
+      border: "solid 1px grey",
       borderRadius: 5,
       padding: 10
     }
