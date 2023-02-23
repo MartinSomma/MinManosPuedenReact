@@ -1,6 +1,15 @@
 import React from 'react'
+import {Link, NavLink} from 'react-router-dom'
+
+
+
+const handlerClick = (id) => {
+  console.log(id)
+//  <Link to= '/productos/7' />  
+}
 
 function Item({producto}) {
+  const path = `/productos/${producto.id}`
   const pathImg = "https://mismanospueden.000webhostapp.com/assets/" + producto.foto
   return (
     <>
@@ -10,7 +19,8 @@ function Item({producto}) {
         </div>
         <p style={estilos.cardTexto}><strong> {producto.nombre} </strong></p>
         <p style={estilos.cardTexto}>Precio: ${producto.precio}</p>
-        <button style={estilos.cardBtn}>Ver Detalle</button>
+        
+        <p style={estilos.boton}><Link to={path}>Ver detalle</Link></p>
       </div>
     </>        
 
@@ -20,6 +30,20 @@ function Item({producto}) {
 export default Item
 
 const estilos = {
+  boton: {
+    display: "flex",
+    alignItems: "center",
+    backgroundColor: "lightgrey",
+    width: 200,
+    height: 30,
+    textAlign: "center",
+    justifyContent: "center",
+    margin: "auto",
+    borderRadius: 5,
+    textDecoration: "none",
+    border: "1px solid grey",
+    
+  },
   card: {
     width: 350,
     border: "1px solid lightgray",

@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../assets/logo.png";
 import { CartWidget } from "./CartWidget";
 import { NavBarItemListContainer } from "./NavBarItemListContainer";
+import {Link, NavLink} from 'react-router-dom'
 
 function NavBar() {
   return (
@@ -16,7 +17,7 @@ function NavBar() {
         </div>
 
         <div style={estilos.contenedorCarrito}>
-          <CartWidget cant="3" />
+          <Link to='carrito'><CartWidget cant="3" /></Link> 
         </div>
 
       </nav>

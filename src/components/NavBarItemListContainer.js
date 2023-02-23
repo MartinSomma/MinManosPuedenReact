@@ -1,4 +1,5 @@
-
+import React from 'react'
+import {Link, NavLink} from 'react-router-dom'
 
 export const NavBarItemListContainer = (props) =>{
     return( 
@@ -6,11 +7,11 @@ export const NavBarItemListContainer = (props) =>{
 
         <div style={estilos.listaContenedor}>
             <ul style={estilos.ul}>
-                <li><a style={estilos.a} href="#">Inicio</a></li>
-                <li><a style={estilos.a} href="#">Productos</a></li>
-                <li><a style={estilos.a} href="#">Quienes Somos</a></li>
-                <li><a style={estilos.a} href="#">Como Comprar</a></li>
-                <li><a style={estilos.a} href="#">Contacto</a></li>
+                <li><Link style={estilos.a} to='/'>Inicio</Link></li>
+                <li><Link style={estilos.a} to='/productos'>Productos</Link></li>
+                <li><Link style={estilos.a} to='/quienessomos'>Quienes Somos</Link></li>
+                <li><Link style={estilos.a} to='comocomprar'>Como Comprar</Link></li>
+                <li><Link style={estilos.a} to='contacto'>Contacto</Link></li>
             </ul>
             <p style={estilos.mensaje}>{props.greeting}</p>
         </div>
