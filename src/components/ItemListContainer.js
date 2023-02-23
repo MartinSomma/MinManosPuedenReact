@@ -1,49 +1,48 @@
+import React, { useEffect, useState } from "react";
+import ItemList from "./ItemList";
+import Prueba from "./ItemList"
+//import { useParams } from "react-router-dom";
+
+const ItemListContainer = ({ greeting }) => {
+  const [products, setProducts] = useState([]);
+  const [error, setError] = useState(false);
+ // const { name } = useParams();
+  
+  const URL = "https://63c17853376b9b2e647c8e81.mockapi.io/mmp/productos"
 
 
-export const ItemListContainer = (props) =>{
-    return( 
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await fetch(URL);
+        const data = await res.json();
+        setProducts(data);
+      } catch {
+        setError(true);
+      }
+    };
+
+    getProducts();
+  },[] );
+
+//  const onAdd = (count) => {
+//    console.log(`el usuario selecciono ${count} `);
+//  };
+
+  return (
+    <>
+      <h1>{greeting}</h1>
+      {!error ? (
         <>
-
-        <div style={estilos.listaContenedor}>
-            <ul style={estilos.ul}>
-                <li><a style={estilos.a} href="#">Inicio</a></li>
-                <li><a style={estilos.a} href="#">Productos</a></li>
-                <li><a style={estilos.a} href="#">Quienes Somos</a></li>
-                <li><a style={estilos.a} href="#">Como Comprar</a></li>
-                <li><a style={estilos.a} href="#">Contacto</a></li>
-            </ul>
-            <p style={estilos.mensaje}>{props.greeting}</p>
-        </div>
-            
+          {products.length ? (
+            <ItemList productos={products}/>
+          ) : (<h1>Cargando...</h1>)
+          }
         </>
-    )
-}
+      ) : (<h1>Hubo un error</h1>)
+      }
+    </>
+  );
+};
 
-
-const estilos = {
-    listaContenedor: {
-        display: "flex",
-        alignItems: "center"
-    },
-    ul: {
-      margin: 0,
-      padding: 0,
-      paddingRight: 80,
-      gap: 20,
-      height: 100,
-      listStyle: "none",
-      display: "flex",
-      justifyContent: "flex-start",
-      alignItems: "center"
-    },
-    a: {
-      textDecoration: "none",
-      color: "grey",
-      fontFamily: "Segoe UI, Arial, Courier New",
-    },
-    mensaje: {
-        style: "bold",
-        marginRight: 20
-        
-    }
-  };
+export default ItemListContainer;

@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../assets/logo.png";
 import { CartWidget } from "./CartWidget";
-import { ItemListContainer } from "./ItemListContainer";
+import { NavBarItemListContainer } from "./NavBarItemListContainer";
 
 function NavBar() {
   return (
@@ -12,7 +12,7 @@ function NavBar() {
         </div>
 
         <div style={estilos.contenedorLista}>
-            <ItemListContainer  greeting="Hola, Martin!" />
+            <NavBarItemListContainer  greeting="Hola, Martin!" />
         </div>
 
         <div style={estilos.contenedorCarrito}>
