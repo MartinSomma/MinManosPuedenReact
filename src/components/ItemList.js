@@ -6,7 +6,10 @@ const ItemList = ({productos}) => {
       <div>
         {productos.map( (actual)=>{
           return (
-            <Item/>
+            //si dejo el p de aca abajo funciona ok, me imprime uno por aca producto q tengo.
+            //<p>hasta aca llega bien</p>
+            //ahora lo cambio por el componente sencillo, sin props, sin nada y se me cuelga.
+            <Item />
           )
         })}
       </div>
