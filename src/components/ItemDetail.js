@@ -1,9 +1,6 @@
-import { borderRadius, textAlign } from '@mui/system'
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import ItemCount from './ItemCount';
 import { CustomContext } from "../Context/CustomContext";
-import { Link } from "react-router-dom";
-//import { style } from "@mui/system"
 
 
 const ItemDetail = ({producto}) => {

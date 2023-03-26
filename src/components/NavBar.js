@@ -34,10 +34,8 @@ export default NavBar;
 const estilos = {
   navBar: {
     display: "flex",
-    background: "lightgray",
     height: 100,
     width: "100%",
-    //justifyContent: "space-between"
   },
   imagen: {
     width: 100,

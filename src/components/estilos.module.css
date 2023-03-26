@@ -1,0 +1,29 @@
+.bannerDecora{
+    background-image: url("../assets/fondoBanne.jpg"); 
+    width: 100%;
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    
+    
+}
+
+.destacados {
+    width: 100%;
+}
+
+.bannerDecora h1 {
+    line-height: 350px;
+    font-family: Habibi;
+    font-size: 30px;
+    
+}
+
+.destacados {
+    width: 100%;
+    font-family: Gotu;
+    text-align: center;
+    font-size: 18px;
+}

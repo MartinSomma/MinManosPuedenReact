@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const ItemCount = ({ onAdd , stock , initial }) => {
     const [cantidad, setCantidad] = useState(initial);
-    //console.log ('el valor inicial es', initial)
+  
 
     const AgregarUnidad = () => {
         if (cantidad < stock) {

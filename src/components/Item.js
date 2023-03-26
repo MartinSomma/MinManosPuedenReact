@@ -1,12 +1,9 @@
 import React from 'react'
-import {Link, NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 
 
-const handlerClick = (id) => {
-  console.log(id)
-//  <Link to= '/productos/7' />  
-}
+
 
 function Item({producto}) {
   const path = `/productos/${producto.id}`

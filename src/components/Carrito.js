@@ -4,11 +4,13 @@ import CarritoItem from "./CarritoItem"
 import { useNavigate } from 'react-router-dom';
 import { getDoc, collection, query, where, addDoc, serverTimestamp, doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase";
+import ContenidoCarrito from "./Tabla";
 
 
 
 
 const Carrito = () => {
+
   const navigate = useNavigate();
   const { clear, cart, totals } = useContext(CustomContext);
   const [isSetFinalizarCompra, setFinalizarCompra] = useState(false)
@@ -18,17 +20,17 @@ const Carrito = () => {
 
   const continuarCompra = () =>{
     setFinalizarCompra(true)
-    console.log('finalizar compra', isSetFinalizarCompra)
+    
   }
 
   const guardarNombre = (e) => {
     datosComprador.nombre = e.target.value
-    console.log(datosComprador)
+    
   }
 
   const guardarDireccion = (e) => {
     datosComprador.direccion = e.target.value
-    console.log(datosComprador)
+    
   }
 
   const guardarEmail = (e) => {
@@ -61,14 +63,10 @@ const Carrito = () => {
   }
 
   const validarStock = (id, stockActual, cantidad) =>{
-    console.log ('id=', id,'stockActual=',stockActual,'cantidad=',cantidad)
-
     if (!((stockActual - cantidad) >= 0)){
       cantOK = false
     }
     cart[cart.findIndex((ele) => ele.id == id)].stock = stockActual
-    
-
   }
 
   const consultarStock = (id, cantidad) =>{
@@ -96,22 +94,11 @@ const Carrito = () => {
 
     cart.length<1 ? (<div>El carrito esta vacio</div>) : (
       <>
-      <table>
-        <thead>
-          <tr>
-            <td>Nombre</td>
-            <td>Precio</td>
-            <td>Cantidad</td>
-            <td>Eliminar</td>
-          </tr>
-          </thead>
-          <tbody>
-          {cart.map( (ele, i)=>{
-              return  <CarritoItem key={i} producto={ele}/>;
-            })}
-
-          </tbody>
-        </table>
+      <h2>Articulos en el carrito:</h2>
+      <div style={estilos.tableContainer}>
+        <ContenidoCarrito/>
+      </div>
+      
         
         <div>
           <h2>RESUMEN DE LA COMPRA</h2>
@@ -146,14 +133,14 @@ export default Carrito
 
 
 const estilos = {
+  tableContainer: {
+    width:"60%",
+    marginLeft: "20px",
+  },
   formularioON: {
     width: "40%",
     display: "flex",
     flexDirection: "column",
-    //alignItems: "center",
-    //justifyContent: "center",
-    //border: "solid 1px grey",
-    //borderRadius: 5,
     marginLeft: "20px",
     marginBottom: "20px",
   },

@@ -18,9 +18,7 @@ const styles = {
       margin: "auto",
       width: "95%",
       display: "flex",
-      //flexDirection: "row",
       justifyContent: "space-between",
-      //alignItems: "center",
       flexWrap: "wrap",
     }
   }
