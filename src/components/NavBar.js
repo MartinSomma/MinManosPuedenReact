@@ -1,10 +1,14 @@
 import React from "react";
+import { useContext } from "react";
 import logo from "../assets/logo.png";
 import { CartWidget } from "./CartWidget";
-import { NavBarItemListContainer } from "./NavBarItemListContainer";
-import {Link, NavLink} from 'react-router-dom'
+import { NavBarItemListContainer } from "./NavBarItemListContainer"
+import {Link} from 'react-router-dom'
+import { CustomContext } from "../Context/CustomContext";
 
 function NavBar() {
+  const {totals} = useContext(CustomContext)
+  
   return (
     <>
       <nav style={estilos.navBar}>
@@ -17,7 +21,7 @@ function NavBar() {
         </div>
 
         <div style={estilos.contenedorCarrito}>
-          <Link to='carrito'><CartWidget cant="3" /></Link> 
+          <Link to='carrito'><CartWidget cant={totals.qty} /></Link> 
         </div>
 
       </nav>

@@ -1,21 +1,33 @@
 import { borderRadius, textAlign } from '@mui/system'
-import React from 'react'
+import React, { useState, useContext } from "react";
+import ItemCount from './ItemCount';
+import { CustomContext } from "../Context/CustomContext";
+import { Link } from "react-router-dom";
 //import { style } from "@mui/system"
 
 
 const ItemDetail = ({producto}) => {
-    const pathImg = "https://mismanospueden.000webhostapp.com/assets/" + producto.foto
+    const pathImg = producto.foto
+    const { getQty, removeProduct, agregarProducto } = useContext(CustomContext);
+
+    const onAdd = (count) => {
+        (count > 0) ? agregarProducto(producto, count) : removeProduct(producto.id)
+    };
+
+
+
     return (
         <>
         <div style={estilos.card}>
             <div style={estilos.cardImg}>
-            <img style={estilos.img} src={pathImg} alt={producto.nombre}/>
+                <img style={estilos.img} src={pathImg} alt={producto.nombre}/>
             </div>
+
             <p style={estilos.cardTexto}><strong> {producto.nombre} </strong></p>
-            <p > {producto.descripcion}</p>
+            <p> {producto.descripcion}</p>
             <p style={estilos.cardTexto}><strong>Precio: ${producto.precio}</strong></p>
-            <button style={estilos.cardBtn}>Comprar</button>
-        </div>
+            <ItemCount onAdd={onAdd} initial={getQty(producto.id)} stock={producto.stock}/>        
+            </div>
         </>      
         )
 }
@@ -25,6 +37,7 @@ export default ItemDetail
 
 const estilos = {
     card: {
+        marginTop: "10px",
         width: 350,
         textAlign: "center",
         border: "1px solid lightgrey",

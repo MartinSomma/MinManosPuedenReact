@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail"
 import { useParams } from "react-router-dom";
+import {db} from '../firebase/firebase'
+import {doc, getDoc, collection} from 'firebase/firestore'
 
 const ItemDetailContainer = () => {
 
@@ -10,17 +12,16 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
 
-        const obtenerProducto = async () => {
-        try {
-            const res = await fetch(`https://63c17853376b9b2e647c8e81.mockapi.io/mmp/productos/${id}`);
-            const data = await res.json();
-            setProducto(data);
-        } finally {
-            setLoading(false);
-        }
-        };
+        const productsCollection = collection(db,'productos')
+        const refDoc = doc(productsCollection, id)
+        getDoc(refDoc).then(
+            (ele) => {
+                setProducto({ id: ele.id, ...ele.data() })
+                setLoading(false)
+            }
+        )
+        .catch (()=> setLoading(false))
 
-        obtenerProducto();
     }, [id]);
 
     return (

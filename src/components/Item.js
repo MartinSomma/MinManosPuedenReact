@@ -10,7 +10,7 @@ const handlerClick = (id) => {
 
 function Item({producto}) {
   const path = `/productos/${producto.id}`
-  const pathImg = "https://mismanospueden.000webhostapp.com/assets/" + producto.foto
+  const pathImg =  producto.foto
   return (
     <>
       <div style={estilos.card}>
