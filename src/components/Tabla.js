@@ -23,10 +23,12 @@ function miFuncion(arr){
 
 export default function ContenidoCarrito() {
 
-    const { cart, removeProduct } = useContext(CustomContext);
+    const { totals, cart, removeProduct } = useContext(CustomContext);
     const rows = cart.map(miFuncion)
 
+
     return (
+
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -49,9 +51,15 @@ export default function ContenidoCarrito() {
                 <TableCell align="right">{row.precio}</TableCell>
                 <TableCell align="right">{row.cantidad}</TableCell>
                 <TableCell align="right">{<button onClick = {()=>removeProduct(row.eliminar)}>x</button>}</TableCell>
-                
               </TableRow>
+
             ))}
+                <TableRow>
+                <TableCell><strong>TOTAL</strong></TableCell>
+                <TableCell align="right"><strong>${totals.total}</strong></TableCell>
+                <TableCell align="right"><strong>{totals.qty}</strong></TableCell>
+                <TableCell align="right"></TableCell>
+              </TableRow>
           </TableBody>
         </Table>
       </TableContainer>

@@ -10,7 +10,7 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(true);
     const {id} = useParams()
 
-    useEffect(() => {
+    useEffect( () => {
 
         const productsCollection = collection(db,'productos')
         const refDoc = doc(productsCollection, id)
