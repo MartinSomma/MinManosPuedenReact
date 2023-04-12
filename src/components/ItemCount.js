@@ -13,7 +13,7 @@ const ItemCount = ({ onAdd , stock , initial }) => {
     };
 
     const RestarUnidad = () => {
-        if (cantidad > 0) {
+        if (cantidad > 1) {
             setCantidad(cantidad - 1);
         }
     };
@@ -31,9 +31,14 @@ const ItemCount = ({ onAdd , stock , initial }) => {
                 +
                 </button>
             </div>
-            <Link to="/carrito" style={styles.vinculo} >
+            <div style={styles.vinculo} >
                 <button style={styles.buttonAdd} onClick={() => onAdd(cantidad)}>
                 Agregar al carrito
+                </button>
+              </div>
+              <Link to="/carrito" style={styles.vinculo} >
+                <button style={styles.buttonAdd} onClick={() => onAdd(cantidad)}>
+                Ver Carrito
                 </button>
             </Link>
         </div>

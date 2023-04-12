@@ -1,13 +1,17 @@
+import { Category } from "@mui/icons-material";
 import React from "react";
+import CategorySelector from "./CategorySelector";
 import Item from "./Item";
 
 const ItemList = ({productos}) => {
     return (
+      <>
       <div style={styles.container}>
         {productos.map( (ele)=>{
           return  <Item key={ele.id} producto={ele}/>;
         })}
       </div>
+      </>
     )
   }
 

@@ -7,7 +7,7 @@ export function CartWidget (props) {
           
           <div style={estilos.bordeCarrito}>
             <Carrito fontSize="medium"/>
-            <span>{props.cant}</span>
+            {props.cant > 0 ? (<span>{props.cant}</span>) : (<span></span>)}
           </div>
     
         

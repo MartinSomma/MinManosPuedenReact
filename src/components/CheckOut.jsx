@@ -2,12 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
   getDoc,
   collection,
-  query,
-  where,
-  addDoc,
-  serverTimestamp,
   doc,
-  updateDoc,
 } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 import Table from "@mui/material/Table";
