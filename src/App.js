@@ -10,8 +10,6 @@ import ComoComprar from './components/ComoComprar'
 import { CustomProvider } from "./Context/CustomContext";
 import Contacto from './components/Contacto'
 import Carrito from './components/Carrito'
-import style from './components/style.css'
-import CheckOut from './components/CheckOut';
 
 function App() {
   
@@ -23,6 +21,7 @@ function App() {
             <NavBar />
           </header>
           <main>
+
             <Routes>
               <Route path='/' element={<Inicio/>}/>
               <Route path='/productos' element={<ItemListContainer greeting="Lista de Productos:"/>}/>
@@ -32,6 +31,7 @@ function App() {
               <Route path='/carrito' element={<Carrito/>}/>
               <Route path='/productos/:id' element={<ItemDetailContainer/>}/>
             </Routes>
+
             
           </main>
       </CustomProvider>
@@ -47,3 +47,7 @@ function App() {
 
 
 export default App;
+
+
+
+            

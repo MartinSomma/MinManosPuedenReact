@@ -3,6 +3,7 @@ import ItemCount from './ItemCount';
 import { CustomContext } from "../Context/CustomContext";
 
 
+
 const ItemDetail = ({producto}) => {
     const pathImg = producto.foto
     const { getQty, removeProduct, agregarProducto } = useContext(CustomContext);

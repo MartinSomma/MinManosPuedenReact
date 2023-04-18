@@ -10,6 +10,8 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(true);
     const {id} = useParams()
 
+    
+
     useEffect( () => {
 
         const productsCollection = collection(db,'productos')
@@ -26,7 +28,7 @@ const ItemDetailContainer = () => {
 
     return (
         <>
-        {<>{loading ? <h1>Cargando...</h1> : <ItemDetail producto={producto} />}</>}
+        {<>{loading ? <h1>Cargando...</h1> : (<ItemDetail producto={producto} />) }</>}
         </>
     );
     
