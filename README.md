@@ -30,6 +30,8 @@ La app consta de 5 paginas:
 
 La pagina Inicio muestra en un carrousel los artículos destacados del mes. Luego, desde la pagina de productos se pueder en detalle de cara articulo para luego selección la cantidad a agregar al carrito.
 
+En la vista de los productos se puede seleccionar por categoria. La lista de categorias se toma de la base de datos de articulos. Se obtiene el campo 'categora', se eliminan los valores repetidos y se pasa el array de categorias al componente de la lista deplgable.
+
 De forma tal de mantener cierta lógica sobre la cantidad en caso de querer agregar unidades de un determinado articulo, cada vez que se mira el detalle se "trae" la cantidad de artículos que hay en el carrito. Siempre se muestra el total. De forma tal que en la vista de detalle siempre se vea al total de unidades, para determinado articulo, ya incluidos en el carrito.
 
 En control para sumar o restar unidades, dos comportamientos adicionales. Si se confirma 0 (cero) como cantidad, elimina el articulo del carrito. Por otro lado, no deja agregar mas unidad que el stock disponible.
